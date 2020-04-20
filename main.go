@@ -37,5 +37,4 @@ func blogHandler(w http.ResponseWriter, r *http.Request) {
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "<h1>Hello, world!</h1>")
-	fmt.Fprint(w, "<h1>Hello, world!</h1>")
 }
