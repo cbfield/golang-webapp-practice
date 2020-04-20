@@ -29,10 +29,6 @@ func main() {
 	r.HandleFunc("/register", registerHandlerGet).Methods("GET")
 	r.HandleFunc("/register", registerHandlerPost).Methods("POST")
 
-	r.HandleFunc("/home", homeHandlerGet).Methods("GET")
-	r.HandleFunc("/blog", blogHandlerGet).Methods("GET")
-	r.HandleFunc("/contact", contactHandlerGet).Methods("GET")
-
 	fs := http.FileServer(http.Dir("./static/"))
 	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", fs))
 
@@ -101,16 +97,4 @@ func registerHandlerPost(w http.ResponseWriter, r *http.Request) {
 	}
 	client.Set("user:"+username, hash, 0)
 	http.Redirect(w, r, "/login", 302)
-}
-
-func homeHandlerGet(w http.ResponseWriter, r *http.Request) {
-	templates.ExecuteTemplate(w, "index.html", nil)
-}
-
-func blogHandlerGet(w http.ResponseWriter, r *http.Request) {
-	templates.ExecuteTemplate(w, "index.html", nil)
-}
-
-func contactHandlerGet(w http.ResponseWriter, r *http.Request) {
-	templates.ExecuteTemplate(w, "index.html", nil)
 }
