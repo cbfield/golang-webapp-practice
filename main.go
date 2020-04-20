@@ -25,6 +25,9 @@ func main() {
 	r.HandleFunc("/blog", blogHandler).Methods("GET")
 	r.HandleFunc("/contact", contactHandler).Methods("GET")
 
+	fs := http.FileServer(http.Dir("./static/"))
+	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", fs))
+
 	http.Handle("/", r)
 	http.ListenAndServe(":8080", nil)
 }
