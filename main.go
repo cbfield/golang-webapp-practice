@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 	"text/template"
 
@@ -28,13 +27,13 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "<h1>Hello, world!</h1>")
+	templates.ExecuteTemplate(w, "index.html", nil)
 }
 
 func blogHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "<h1>Hello, world!</h1>")
+	templates.ExecuteTemplate(w, "index.html", nil)
 }
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "<h1>Hello, world!</h1>")
+	templates.ExecuteTemplate(w, "index.html", nil)
 }
