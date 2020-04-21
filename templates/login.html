@@ -6,6 +6,9 @@
     <title>Login</title>
 </head>
 <body>
+    {{ if .}}
+    <div class="error">{{ . }}</div>
+    {{ end }}
    <form method=POST>
        Username: <input name="username">
        Password: <input name="password">
